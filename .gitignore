@@ -14,5 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+<<<<<<< HEAD
 config/initializers/secret_token.rb
+=======
+>>>>>>> 0d6716ea71ec63cb3cf4e0e2386740d499421bcf
 /config/initializers/secret_token.rb
