@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -20,10 +20,6 @@ class PostsController < ApplicationController
   end
 
   def update
-
-  end
-
-  def destroy
 
   end
 end

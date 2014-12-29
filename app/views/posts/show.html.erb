@@ -1,0 +1,19 @@
+<p>
+  <%= render @post.categories %>
+</p>
+
+<%= render 'shared/content_title', title: @post.title %>
+
+<p>
+  <%= @post.description %>
+</p>
+<hr/>
+
+<span class='quiet'>
+  posted by <%=link_to @post.creator.username, user_path(@users) %>
+  <small>at <%= @post.created_at %></small><br>
+</span>
+
+<p>
+  <%= @post.comments.each { |comment| comment.body } %>
+</p>
