@@ -6,7 +6,7 @@
   <div class='span8 well'>
     <%= render post.categories %>
     <h4><%= link_to post.title, post_path(post) %></h4>
-    <p><%= post.description %> </p>
+    <p><%= simple_format h post.description %> </p>
     <p>
       <span class='quiet'>
         posted by <%=link_to post.creator.username, user_path(@users) %>

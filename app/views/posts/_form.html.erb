@@ -1,0 +1,35 @@
+<% if @post.errors.any? %>
+  <div class='row'>
+    <div class='alert alert-error span8'>
+      <h4>Your post could not be saved because of the following errors: </h4>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class='well'>
+  <%= form_for @post do |f| %>
+    <div class='control-group'>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <br>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+      <br>
+      <br>
+    </div>
+    <div class='control-group'>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+      <br>
+      <%= f.label :user_id %>
+      <%= f.number_field :user_id %>
+      <br>
+      <%= f.submit "Post", class: 'btn btn-primary' %>
+  <% end %>
+    </div>
+</div>

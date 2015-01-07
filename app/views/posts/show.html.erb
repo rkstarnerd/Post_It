@@ -1,11 +1,19 @@
+<p class='pull-right'>
+  [<%= link_to 'edit this Post', edit_post_path(@post) %>]
+</p>
+
 <p>
   <%= render @post.categories %>
 </p>
 
 <%= render 'shared/content_title', title: @post.title %>
 
+<h6>
+  <%= link_to @post.url, @post.url %>
+</h6>
+<br>
 <p>
-  <%= @post.description %>
+  <%= simple_format h @post.description %>
 </p>
 <hr/>
 
@@ -14,6 +22,26 @@
   <small>at <%= @post.created_at %></small><br>
 </span>
 
+<br>
+
+<h5>Create a comment:</h5>
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.text_area :body %>
+  <br>
+  <%= f.submit "Create comment", class: 'btn btn-primary' %>
+<% end %>
+
 <p>
-  <%= @post.comments.each { |comment| comment.body } %>
+<% @post.comments.each do |comment| %>
+  <div class="row">
+    <div class='span8 well'>
+      <p><%= simple_format h comment.body %> </p>
+      <p>
+        <span class='quiet'>
+          posted by <%=link_to comment.creator.username, user_path(@users) %>
+        <small>at <%= comment.created_at %></small>
+      </span>
+    </div>
+  </div>
+<% end %>
 </p>
