@@ -1,3 +1,16 @@
+<% if @category.errors.any? %>
+  <div class='row'>
+    <div class='alert alert-error span8'>
+      <h4> Your category could not be saved for the following reasons: </h4>
+      <ul>
+        <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
 <%= form_for @category do |f| %>
   <div class='control-group'>
     <%= f.label :name %>
