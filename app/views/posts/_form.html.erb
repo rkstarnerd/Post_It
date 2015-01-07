@@ -29,7 +29,7 @@
       <%= f.label :user_id %>
       <%= f.number_field :user_id %>
       <br>
-      <%= f.submit "Post", class: 'btn btn-primary' %>
+      <%= f.submit(@post.new_record? ? "Create Post" : "Update Post", class: 'btn btn-primary') %>
   <% end %>
     </div>
 </div>
