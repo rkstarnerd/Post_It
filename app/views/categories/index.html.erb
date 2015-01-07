@@ -1,0 +1,9 @@
+<%= render 'shared/content_title', title: 'All Categories' %>
+
+<% @categories.each do |category| %>
+<div class="row">
+  <%= category.name %>
+</div>
+<% end %>
+<br>
+<%= link_to 'Create a new Category', new_category_path %>
