@@ -1,0 +1,12 @@
+<% if new_form.errors.any? %>
+  <div class='row'>
+    <div class='alert alert-error span8'>
+      <h4>Your post could not be saved because of the following errors: </h4>
+      <ul>
+        <% new_form.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
