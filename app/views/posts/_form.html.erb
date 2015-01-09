@@ -16,6 +16,10 @@
       <%= f.label :user_id %>
       <%= f.number_field :user_id %>
       <br>
+      <select name='category[]' multiple=multiple>
+        <option value='1'>option1</option>
+        <option value='2'>option2</option>
+      </select>
       <%= f.submit(@post.new_record? ? "Create Post" : "Update Post", class: 'btn btn-primary') %>
   <% end %>
     </div>

@@ -6,11 +6,7 @@
   <%= render @post.categories %>
 </p>
 
-<%= render 'shared/content_title', title: @post.title %>
-
-<h6>
-  <%= link_to @post.url, @post.url %>
-</h6>
+<%= link_to @post.title, fix_url(@post.url) %>
 <br>
 <p>
   <%= simple_format h @post.description %>
@@ -23,6 +19,8 @@
 </span>
 
 <br>
+
+<%= render 'shared/error', new_form: @comment %>
 
 <h5>Create a comment:</h5>
 <%= form_for [@post, @comment] do |f| %>

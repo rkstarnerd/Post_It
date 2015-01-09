@@ -3,7 +3,7 @@ PostitTemplate::Application.routes.draw do
 
   resources :users, except: [:destroy] do
     resources :posts
-    resources :comments
+    resources :comments, only: [:create, :show]
   end
 
   resources :posts, except: [:destroy] do
