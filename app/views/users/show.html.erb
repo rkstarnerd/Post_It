@@ -1,0 +1,17 @@
+<%= render 'shared/content_title', title: " Profile: #{@user.username}" %>
+
+
+<div class='span8 well'>
+	<strong>Username:</strong>   <%= @user.username %>
+	<br>
+	<strong>Time zone:</strong> 
+</div>
+<br>
+<p>
+	<strong><%= @user.username %>'s Activity</strong>
+</p>
+<p>
+	<% @user.posts.each do |post| %>
+  <%= render 'posts/post', post: post %>
+<% end %>
+</p>

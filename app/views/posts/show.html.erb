@@ -14,7 +14,7 @@
 <hr/>
 
 <span class='quiet'>
-  posted by <%=link_to @post.creator.username, user_path(@users) %>
+  posted by <%=link_to @post.creator.username, user_path(@post.creator.id) %>
   <small>on <%= time_of_post(@post.created_at) %></small><br>
 </span>
 
@@ -36,7 +36,7 @@
       <p><%= simple_format h comment.body %> </p>
       <p>
         <span class='quiet'>
-          posted by <%=link_to comment.creator.username, user_path(@users) %>
+          posted by <%=link_to comment.creator.username, user_path(comment.creator.id) %>
         <small>at <%= comment.created_at %></small>
       </span>
     </div>
