@@ -7,18 +7,18 @@ Features:
 
     *Built with Ruby 2 and Rails 4
     *Create and edit posts
-    <!-- *Comment and vote on posts
+    [//]: # (*Comment and vote on posts
     *Authentication
-    *Tracks who created every comment, vote, and post -->
+    *Tracks who created every comment, vote, and post)
     *Organize posts by category
     *View and edit user profiles
-    <!-- *Uses roles to allow admins to edit all posts
+    [//]: # (*Uses roles to allow admins to edit all posts
     *Uses ajax to vote
-    *Slugs as URLs -->
+    *Slugs as URLs)
     *Display time based on user specified time zone
-    <!-- *Deployed to Heroku
+    [//]: # (*Deployed to Heroku
     *Uses gem to extract common logic
-    *2-factor authentication -->
+    *2-factor authentication)
 
 
 
