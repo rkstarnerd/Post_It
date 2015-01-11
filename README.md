@@ -1,6 +1,6 @@
 ####**Welcome to Post It!**
 
-Post It is a Reddit-style forum built from scratch during 2nd course with [Tealeaf Academy](gotealeaf.com), Rapid Prototyping with Ruby on Rails.
+Post It is a Reddit-style forum built from scratch during 2nd course with [Tealeaf Academy](http://gotealeaf.com), Rapid Prototyping with Ruby on Rails.
 
 
 Features:
