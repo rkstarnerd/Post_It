@@ -15,7 +15,7 @@
 
 <span class='quiet'>
   posted by <%=link_to @post.creator.username, user_path(@users) %>
-  <small>at <%= @post.created_at %></small><br>
+  <small>on <%= time_of_post(@post.created_at) %></small><br>
 </span>
 
 <br>
