@@ -33,7 +33,7 @@
 <% @post.comments.each do |comment| %>
   <div class="row">
     <div class='span8 well'>
-      <p><%= simple_format h comment.body %> </p>
+      <p><em><%= simple_format h comment.body %></em> </p>
       <p>
         <span class='quiet'>
           posted by <%=link_to comment.creator.username, user_path(comment.creator.id) %>

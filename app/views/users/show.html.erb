@@ -1,16 +1,22 @@
 <%= render 'shared/content_title', title: " Profile: #{@user.username}" %>
 
 
-<div class='span8 well'>
+<div class='well span8'>
 	<strong>Username:</strong>   <%= @user.username %>
 	<br>
 	<strong>Time zone:</strong> 
 </div>
-<br>
+<br></br>
+<br></br>
+<br></br>
 <p>
 	<strong><%= @user.username %>'s Activity</strong>
 </p>
 <p>
+	<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">Posts (<%= @user.posts.size%>) </a></li>
+    <li role="presentation"><a href="#">Comments (<%= @user.comments.size%>)</a></li>
+</ul>
 	<% @user.posts.each do |post| %>
   <%= render 'posts/post', post: post %>
 <% end %>
