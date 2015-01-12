@@ -4,7 +4,7 @@
     <h4><%= link_to post.title, post_path(post) %></h4>
     <p><%= simple_format h post.description %> </p>
     <p>
-      <%= render 'creation_stats', post_type: post %>
+      <%= render 'shared/creation_stats', post_type: post %>
       <p>
         <%= link_to ("#{post.comments.size} comments"), post_path(post) %>
       </p>
