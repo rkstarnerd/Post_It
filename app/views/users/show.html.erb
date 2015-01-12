@@ -32,7 +32,7 @@
             <p>
               <%= render 'shared/creation_stats', post_type: comment %>
               <span class="quiet">
-                This comment was made on post: <%= link_to "#{comment.post.title}", comment.post.title %>
+                This comment was made on post: <%= link_to "#{comment.post.title}", comment.post %>
               </span>
           </div>
         </div>
