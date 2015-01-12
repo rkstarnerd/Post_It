@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-      <div class="navbar navbar-fixed-top">
+      <div class="navbar navbar-fixed-top navbar-collapse">
         <div class="navbar-inner">
           <div class="container">
             <%= render 'layouts/navigation' %>
@@ -29,8 +29,15 @@
             <%= yield %>
           </div>
         </div>
-        <footer>
-        </footer>
+        <div class="container">
+          <footer id="footer" class="container-fluid">
+            <ul class="inline">
+              <li><a href="">About</a></li>
+              <li><a href="http://gemilleford.com/contact/">Contact Me</a></li>
+              <li><a href="https://github.com/rkstarnerd/Post_It">Github Repo</a></li>
+            </ul>
+          </footer>
+        </div>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
   </body>
