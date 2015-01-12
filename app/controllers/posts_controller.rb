@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = "Your post was created."
-      redirect_to posts_path
+      redirect_to post_path(@post)
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def update
     if @post.update(post_params)
       flash[:notice] = "Your post was updated."
-      redirect_to posts_path(@post)
+      redirect_to post_path(@post)
     else
       render 'edit'
     end
