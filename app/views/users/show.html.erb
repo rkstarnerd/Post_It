@@ -13,11 +13,27 @@
 	<strong><%= @user.username %>'s Activity</strong>
 </p>
 <p>
-	<ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a href="#">Posts (<%= @user.posts.size%>) </a></li>
-    <li role="presentation"><a href="#">Comments (<%= @user.comments.size%>)</a></li>
+<div class="tabbable">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#posts_tab" data-toggle="tab">Posts (<%= @user.posts.size%>) </a></li>
+    <li role="presentation"><a href="#comments_tab" data-toggle="tab">Comments (<%= @user.comments.size%>)</a></li>
 </ul>
-	<% @user.posts.each do |post| %>
-  <%= render 'posts/post', post: post %>
-<% end %>
+	<div class="tab-content">
+    <div id="posts_tab" class="tab-pane">
+      <% @user.posts.each do |post| %>
+        <%= render 'posts/post', post: post %>
+      <% end %>
+    </div>
+    <div id="comments_tab" class="tab-pane">
+      <% @user.comments.each do |comment| %>
+        <div class="row">
+          <div class='span8 well'>
+            <p><em><%= simple_format h comment.body %></em></p>
+            <p>
+              <%= render 'shared/creation_stats', post_type: comment %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </p>
