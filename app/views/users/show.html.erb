@@ -31,6 +31,9 @@
             <p><em><%= simple_format h comment.body %></em></p>
             <p>
               <%= render 'shared/creation_stats', post_type: comment %>
+              <span class="quiet">
+                This comment was made on post: <%= link_to "#{comment.post.title}", comment.post.title %>
+              </span>
           </div>
         </div>
       <% end %>
