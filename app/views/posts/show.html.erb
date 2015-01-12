@@ -1,6 +1,4 @@
-<p class='pull-right'>
-  [<%= link_to 'edit this Post', edit_post_path(@post) %>]
-</p>
+
 
 <p>
   <%= render @post.categories %>
@@ -15,6 +13,9 @@
 
 <%= render 'shared/creation_stats', post_type: @post %>
 
+<p class>
+  [<%= link_to 'edit this Post', edit_post_path(@post) %>]
+</p>
 <br>
 
 <%= render 'shared/error', form: @comment %>
