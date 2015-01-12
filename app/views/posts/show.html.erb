@@ -13,7 +13,7 @@
 </p>
 <hr/>
 
-<%= render 'creation_stats', post_type: @post %>
+<%= render 'shared/creation_stats', post_type: @post %>
 
 <br>
 
@@ -30,9 +30,9 @@
 <% @post.comments.each do |comment| %>
   <div class="row">
     <div class='span8 well'>
-      <p><em><%= simple_format h comment.body %></em> </p>
+      <p><em><%= simple_format h comment.body %></em></p>
       <p>
-        <%= render 'creation_stats', post_type: comment %>
+        <%= render 'shared/creation_stats', post_type: comment %>
     </div>
   </div>
 <% end %>

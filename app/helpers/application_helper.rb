@@ -4,6 +4,10 @@ module ApplicationHelper
   end
 
   def time_of_post(date)
-  	date.rfc822
+  	if date.nil?
+      date
+    else
+      date.rfc822
+    end
   end
 end
