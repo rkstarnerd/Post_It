@@ -13,10 +13,7 @@
 </p>
 <hr/>
 
-<span class='quiet'>
-  posted by <%=link_to @post.creator.username, user_path(@post.creator.id) %>
-  <small>on <%= time_of_post(@post.created_at) %></small><br>
-</span>
+<%= render 'creation_stats', post_type: @post %>
 
 <br>
 
@@ -35,10 +32,7 @@
     <div class='span8 well'>
       <p><em><%= simple_format h comment.body %></em> </p>
       <p>
-        <span class='quiet'>
-          posted by <%=link_to comment.creator.username, user_path(comment.creator.id) %>
-        <small>at <%= comment.created_at %></small>
-      </span>
+        <%= render 'creation_stats', post_type: comment %>
     </div>
   </div>
 <% end %>
