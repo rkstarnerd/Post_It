@@ -1,7 +1,7 @@
 <div class="row">
   <div class='span8 well'>
     <%= render post.categories %>
-    <h4><%= link_to post.title, post_path(post) %></h4>
+    <h4><%= link_to post.title, fix_url(post.url) %></h4>
     <p><%= simple_format h post.description %> </p>
     <p>
       <%= render 'shared/creation_stats', post_type: post %>
