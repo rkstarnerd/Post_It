@@ -15,7 +15,9 @@
       <br>
       <%= f.label :user_id %>
       <%= f.number_field :user_id %>
-      <div class='form-inline'>
+      <div class='form-inline', 'control-group'>
+        <%= f.label :categories %>:
+        <br>
         <%= f.collection_check_boxes:category_ids, Category.all, :id, :name, {:item_wrapper_class => 'inline'} %>
       </div>
       <br>
