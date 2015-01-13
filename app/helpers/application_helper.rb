@@ -4,10 +4,10 @@ module ApplicationHelper
   end
 
   def time_of_post(date)
-  	if date.nil?
+    if date.nil?
       date
     else
-      date.rfc822
+      date.strftime("%A, %m/%d/%Y at %l:%M %P %Z")
     end
   end
 end
