@@ -10,13 +10,13 @@ Current Features:
     *Organize posts by category
     *View and edit user profiles
     *Display time based on user specified time zone
+    *Authentication
     *Deployed to Heroku
     
 
 Coming Features:
 
     *Comment and vote on posts
-    *Authentication
     *Tracks who created every comment, vote, and post
     *Uses roles to allow admins to edit all posts
     *Uses ajax to vote
