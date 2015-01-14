@@ -20,6 +20,19 @@
 
 <%= render 'shared/error', form: @comment %>
 
+<% if current_user.nil? %>
+<p>
+<% @post.comments.each do |comment| %>
+  <div class="row">
+    <div class='span8 well'>
+      <p><em><%= simple_format h comment.body %></em></p>
+      <p>
+        <%= render 'shared/creation_stats', post_type: comment %>
+    </div>
+  </div>
+<% end %>
+</p>
+<% else %>
 <h5>Create a comment:</h5>
 <%= form_for [@post, @comment] do |f| %>
   <%= f.text_area :body %>
@@ -38,3 +51,4 @@
   </div>
 <% end %>
 </p>
+<% end %>
