@@ -29,24 +29,15 @@
 </div>
 
 <% if logged_in? %>
-  <li>
-    <div class='nav_item'>
-      <%= link_to 'Log out', logout_path, class: 'btn btn-info btn-small' %>
-  </li>
-  <li>
-    <div class='nav_item' >
-      <strong>Hi, <%= current_user.username %>!</strong>
-    </div>
-  </li>
+  <div class='nav_item' class='center'>
+    <strong>Hi, <%= current_user.username.capitalize %>!</strong>
+  </div>
+  <div class='nav navbar-nav navbar-right' >
+    <%= link_to 'Log out', logout_path, class: 'btn btn-info btn-small pull-right' %>
+  </div>
 <% else %>
-  <li>
-    <div class='nav_item'>
-        <%= link_to 'Register', register_path, class: 'btn btn-success btn-small' %>
-    </div>
-  </li>
-  <li>
-    <div class='nav_item'>
-        <%= link_to 'Log in', login_path, class: 'btn btn-success btn-small' %>
-    </div>
-  </li>
+  <div class='nav_item navbar-right'>
+    <%= link_to 'Register', register_path, class: 'btn btn-success btn-small' %>
+    <%= link_to 'Log in', login_path, class: 'btn btn-success btn-small' %>
+  </div>
 <% end %>
