@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
   def index
 
   end
 
   def show
-	@user = User.find(params[:id])
+	
   end
 
   def new
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    
   end
 
   def create
@@ -28,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
 
     if @user.save
       flash[:notice] = "You have successfully updated your profile."
@@ -46,5 +46,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :password)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
