@@ -14,7 +14,9 @@
 <%= render 'shared/creation_stats', post_type: @post %>
 
 <p class>
+  <% if current_user.id == @post.creator.id %>
   [<%= link_to 'edit this Post', edit_post_path(@post) %>]
+  <% end %>
 </p>
 <br>
 
