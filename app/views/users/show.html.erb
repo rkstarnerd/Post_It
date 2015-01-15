@@ -1,10 +1,12 @@
 <%= render 'shared/content_title', title: " Profile: #{@user.username}" %>
-
-
 <div class='well span8'>
 	<strong>Username:</strong>   <%= @user.username %>
 	<br>
 	<strong>Time zone:</strong> 
+  <p>
+  <% if current_user.id == @user.id %>
+    [<%= link_to "edit profile", edit_user_path(@user) %>]
+  <% end %>
 </div>
 <br></br>
 <br></br>

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def create
@@ -27,10 +28,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.update(user_params)
+    @user = User.find(params[:id])
 
     if @user.save
-      flash[:notice] = "You have successfully updated your profie."
+      flash[:notice] = "You have successfully updated your profile."
       redirect_to user_path(@user)
     else
       render 'edit'
@@ -44,6 +45,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :time_zone)
+    params.require(:user).permit(:username, :password)
   end
 end
