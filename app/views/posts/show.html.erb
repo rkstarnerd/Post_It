@@ -44,13 +44,7 @@
 
 <p>
 <% @post.comments.each do |comment| %>
-  <div class="row">
-    <div class='span8 well'>
-      <p><em><%= simple_format h comment.body %></em></p>
-      <p>
-        <%= render 'shared/creation_stats', post_type: comment %>
-    </div>
-  </div>
+  <%= render 'comments/comment', comment: comment %>
 <% end %>
 </p>
 <% end %>

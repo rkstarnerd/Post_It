@@ -1,5 +1,6 @@
 <%= render 'shared/content_title', title: " Profile: #{@user.username}" %>
 <div class='well span8'>
+  <dl class='dl-horizontal'>
 	<strong>Username:</strong>   <%= @user.username %>
 	<br>
 	<strong>Time zone:</strong> 
@@ -7,38 +8,33 @@
   <% if current_user.id == @user.id %>
     [<%= link_to "edit profile", edit_user_path(@user) %>]
   <% end %>
+</dl>
 </div>
 <br></br>
 <br></br>
 <br></br>
 <p>
+<br>
 	<strong><%= @user.username %>'s Activity</strong>
 </p>
 <p>
-<div class="tabbable">
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#posts_tab" data-toggle="tab">Posts (<%= @user.posts.size%>) </a></li>
-    <li role="presentation"><a href="#comments_tab" data-toggle="tab">Comments (<%= @user.comments.size%>)</a></li>
+  <ul class="nav nav-tabs">
+    <li class='<%= 'active' if params[:tab].nil? %>'>
+      <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %>
+    </li>
+    <li class='<%= 'active' if params[:tab] == 'comments' %>'>
+      <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: 'comments') %>
+    </li>
 </ul>
-	<div class="tab-content">
-    <div id="posts_tab" class="tab-pane">
-      <% @user.posts.each do |post| %>
-        <%= render 'posts/post', post: post %>
-      <% end %>
-    </div>
-    <div id="comments_tab" class="tab-pane">
-      <% @user.comments.each do |comment| %>
-        <div class="row">
-          <div class='span8 well'>
-            <p><em><%= simple_format h comment.body %></em></p>
-            <p>
-              <%= render 'shared/creation_stats', post_type: comment %>
-              <span class="quiet">
-                This comment was made on post: <%= link_to "#{comment.post.title}", comment.post %>
-              </span>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+
+<!-- show posts and comments -->
+<% if params[:tab].nil? %>
+  <% @user.posts.each do |post| %>
+    <%= render 'posts/post', post: post %>
+  <% end %>
+<% elsif params[:tab] == 'comments' %>
+  <% @user.comments.each do |comment| %>
+     <%= render 'comments/comment', comment: comment, show_post: true %>
+  <% end %>
+<% end %>
 </p>
