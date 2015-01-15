@@ -24,11 +24,10 @@
     </ul>
 </div>
 
-<div class='nav_item'>
-    <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small' %>
-</div>
-
 <% if logged_in? %>
+  <div class='nav_item'>
+      <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small' %>
+  </div>
   <div class='nav_item navbar-nav'>
     <strong>Hi, <%= current_user.username.capitalize %>!</strong>
   </div>
@@ -40,6 +39,6 @@
     <%= link_to 'Register', register_path, class: 'btn btn-success btn-small' %>
   </div>
   <div class='nav_item navbar-right'>
-    <%= link_to 'Log in', login_path, class: 'btn btn-success btn-small' %>
+    <%= link_to 'Log in', login_path, class: 'btn btn-default btn-small' %>
   </div>
 <% end %>
