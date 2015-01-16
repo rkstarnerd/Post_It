@@ -1,0 +1,11 @@
+<% show_post ||= false %>
+
+<div class="row">
+  <div class='span8 well'>
+    <p><em><%= simple_format h comment.body %></em></p>
+    <%= render 'shared/creation_stats', post_type: comment %>
+    <% if show_post %>
+      <span class='quiet'>original post: <%= link_to comment.post.title, post_path(comment.post) %></span>
+    <% end %>
+    </div>
+  </div>
