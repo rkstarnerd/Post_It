@@ -13,9 +13,17 @@ PostitTemplate::Application.routes.draw do
 
   resources :posts, except: [:destroy] do
     resources :comments, only: [:create]
+    member do 
+      post :vote
+    end
+    colletion do
+      get :archives
+    end
   end
 
   resources :categories, except: [:edit, :update, :destroy] do
     resources :posts
   end
+
+  #resources :votes, only: [:create] # alternative to below
 end
