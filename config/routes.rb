@@ -16,7 +16,7 @@ PostitTemplate::Application.routes.draw do
     member do 
       post :vote
     end
-    colletion do
+    collection do
       get :archives
     end
   end

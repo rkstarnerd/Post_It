@@ -37,6 +37,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def vote
+
+  end
+
   private
 
   def post_params
