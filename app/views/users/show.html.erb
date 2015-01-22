@@ -3,9 +3,9 @@
   <dl class='dl-horizontal'>
 	<strong>Username:</strong>   <%= @user.username %>
 	<br>
-	<strong>Time zone:</strong> 
+	<strong>Time zone:</strong>
   <p>
-  <% if current_user.id == @user.id %>
+  <% if session[:user_id] == @user.id %>
     [<%= link_to "edit profile", edit_user_path(@user) %>]
   <% end %>
 </dl>
@@ -15,7 +15,8 @@
 <br></br>
 <p>
 <br>
-	<strong><%= @user.username %>'s Activity</strong>
+<br>
+<strong><%= @user.username %>'s Activity</strong>
 </p>
 <p>
   <ul class="nav nav-tabs">
