@@ -40,7 +40,9 @@ class PostsController < ApplicationController
   def vote
     @vote =  Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
 
-    if @vote.vote == true
+    if !@vote.valid?
+      flash[:error] = "You've already voted on this post."
+    elsif @vote.vote == true
       flash[:notice] = "Voted up!"
     else
       flash[:notice] = "Voted down.."
