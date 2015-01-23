@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
 
-    if @user.save
+    if @user.update(user_params)
       flash[:notice] = "You have successfully updated your profile."
       redirect_to user_path(@user)
     else
