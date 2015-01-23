@@ -1,6 +1,7 @@
 <% show_post ||= false %>
 
 <div class='span0 well text-center'>
+  <% if logged_in? %>
     <%= link_to vote_comment_path(comment, vote: true), method: 'post' do %>
       <i class='icon-arrow-up'></i>
     <% end %>
@@ -10,7 +11,10 @@
     <%= link_to vote_comment_path(comment, vote: false), method: 'post' do %>
       <i class='icon-arrow-down'></i>
     <% end %>
-  </div>
+  <% else %>
+    <%= comment.total_votes %> Votes
+  <% end %>
+</div>
 
 <div class="row">
   <div class='span8 well'>
