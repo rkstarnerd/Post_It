@@ -13,4 +13,18 @@ class CommentsController < ApplicationController
       render 'posts/show'
     end
   end
+
+  def vote
+    @vote = Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
+
+    if !@vote.valid?
+      flash[:error] = "You've already voted on this comment"
+    elsif @vote.vote == true
+      flash[:notice] = "Voted up!"
+    else
+      flash[:notice] = "Voted down.."
+    end
+
+    redirect_to :back
+  end
 end

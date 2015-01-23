@@ -13,7 +13,7 @@ PostitTemplate::Application.routes.draw do
 
   resources :posts, except: [:destroy] do
     resources :comments, only: [:create]
-    member do 
+    member do
       post :vote
     end
     collection do
@@ -25,5 +25,9 @@ PostitTemplate::Application.routes.draw do
     resources :posts
   end
 
-  #resources :votes, only: [:create] # alternative to below
+  resources :comments, only: [:vote] do
+    member do
+      post :vote
+    end
+  end
 end
