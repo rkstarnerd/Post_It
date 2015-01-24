@@ -24,6 +24,6 @@ Coming Features:
     *2-factor authentication
 
 
-_The application can be found here:_ https://young-mountain-7639.herokuapp.com/
+_The application can be found here:_ https://gems-postit.herokuapp.com/
 
 (in progress)
