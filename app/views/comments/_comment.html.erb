@@ -1,7 +1,7 @@
 <% show_post ||= false %>
 
 <div class='span0 well text-center'>
-  <% if logged_in? %>
+  <% if logged_in? && comment.valid? %>
     <%= link_to vote_comment_path(comment, vote: true), method: 'post' do %>
       <i class='icon-arrow-up'></i>
     <% end %>
