@@ -16,9 +16,6 @@ PostitTemplate::Application.routes.draw do
     member do
       post :vote
     end
-    collection do
-      get :archives
-    end
   end
 
   resources :categories, except: [:edit, :update, :destroy] do
