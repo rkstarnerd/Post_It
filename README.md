@@ -12,14 +12,14 @@ Current Features:
     *Authentication
     *Comment and vote on posts
     *Tracks who created every comment, vote, and post
+    *Display time based on user specified time zone
+    *Uses ajax to vote
+    *Slugs as URLs
     *Deployed to Heroku
 
 Coming Features:
 
-    *Display time based on user specified time zone
     *Uses roles to allow admins to edit all posts
-    *Uses ajax to vote
-    *Slugs as URLs
     *Uses gem to extract common logic
     *2-factor authentication
 
