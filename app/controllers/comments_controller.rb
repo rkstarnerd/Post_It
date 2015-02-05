@@ -26,6 +26,9 @@ class CommentsController < ApplicationController
       flash[:notice] = "Voted down.."
     end
 
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 end
