@@ -3,7 +3,7 @@
   <dl class='dl-horizontal'>
 	<strong>Username:</strong>   <%= @user.username %>
 	<br>
-	<strong>Time zone:</strong>
+	<strong>Time zone:</strong> <%= @user.time_zone %>
   <p>
   <% if session[:user_id] == @user.id %>
     [<%= link_to "edit profile", edit_user_path(@user) %>]
