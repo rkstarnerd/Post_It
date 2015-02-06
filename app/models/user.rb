@@ -15,4 +15,12 @@ class User < ActiveRecord::Base
   def moderator?
     self.role == 'moderator?'
   end
+
+  def generate_slug
+    self.slug = self.username.gsub(' ', '-').downcase
+  end
+
+  def to_param
+    self.slug
+  end
 end
