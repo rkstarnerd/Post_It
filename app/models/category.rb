@@ -7,7 +7,7 @@ class Category < ActiveRecord::Base
   validates :name, presence: true
 
   def generate_slug
-    self.slug = self.title.gsub(' ', '-').downcase
+    self.slug = self.name.gsub(' ', '-').downcase
   end
 
   def to_param
