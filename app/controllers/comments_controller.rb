@@ -18,14 +18,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @vote = Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
 
-    if !@vote.valid?
-      flash[:error] = "You've already voted on this comment"
-    elsif @vote.vote == true
-      flash[:notice] = "Voted up!"
-    else
-      flash[:notice] = "Voted down.."
-    end
-
     respond_to do |format|
       format.html { redirect_to :back }
       format.js
