@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
     self.slug
   end
 
-  def generate_slug
+  def generate_slug!
     the_slug = to_slug(self.title)
     post = Post.find_by slug: the_slug
 

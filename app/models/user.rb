@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     self.slug
   end
 
-  def generate_slug
+  def generate_slug!
     the_slug = to_slug(self.username)
     user = User.find_by slug: the_slug
 
