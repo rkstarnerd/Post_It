@@ -55,6 +55,6 @@ class Post < ActiveRecord::Base
     str.gsub! /\s*[^A-Za-z0-9]\s*/, '-'
     #remove multiple, consecutive instances of a dash
     str.gsub! /-+/, "-"
-    str
+    str.downcase
   end
 end
