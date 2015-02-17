@@ -22,13 +22,17 @@ class Post < ActiveRecord::Base
     up_votes - down_votes
   end
 
+  def to_param
+    self.slug
+  end
+
   def generate_slug
     the_slug = to_slug(self.title)
     post = Post.find_by slug: the_slug
 
     count = 2
     while post && post != self
-      the_slug  = append_suffix(the_slug, count)
+      the_slug = append_suffix(the_slug, count)
       post = Post.find_by slug: the_slug
       count += 1
     end
@@ -52,11 +56,5 @@ class Post < ActiveRecord::Base
     #remove multiple, consecutive instances of a dash
     str.gsub! /-+/, "-"
     str
-  end
-
-  def to_param
-    self.slug
-
-
   end
 end
