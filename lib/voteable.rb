@@ -1,6 +1,6 @@
 
 module Voteable
-  extend AciveSupport::Concern
+  extend ActiveSupport::Concern
 
   included do
     has_many :votes, as: :voteable
