@@ -14,7 +14,7 @@
 <%= render 'shared/creation_stats', post_type: @post %>
 
 <p class>
-  <% if session[:user_id] == @post.creator.id %>
+  <% if (session[:user_id] == @post.creator.id) || (logged_in? && current_user.admin?) %>
   [<%= link_to 'edit this Post', edit_post_path(@post) %>]
   <% end %>
 </p>
