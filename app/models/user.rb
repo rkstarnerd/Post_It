@@ -28,6 +28,20 @@ class User < ActiveRecord::Base
     self.update_column(:pin, rand(10 ** 6))
   end
 
+  def send_pin_to_twilio
+    # Instantiate a Twilio client
+      client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+
+      msg = "Enter your pin to continue the login process: #{self.pin}"
+
+      # Create and send an SMS message
+      client.account.sms.messages.create(
+        from: TWILIO_CONFIG['from'],
+        to:   self.phone,
+        body: msg
+      )
+  end
+
   def remove_pin!
     self.update_column(:pin, nil)
   end
