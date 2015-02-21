@@ -3,7 +3,7 @@
 Post It is a Reddit-style forum built from scratch during the 2nd course of [Tealeaf Academy](http://gotealeaf.com), Rapid Prototyping with Ruby on Rails.
 
 
-Current Features:
+Features:
 
     *Built with Ruby 2 and Rails 4
     *Create and edit posts
@@ -18,12 +18,15 @@ Current Features:
     *Slugs as URLs
     *Uses gems to extract common logic
     *Deployed to Heroku
-
-Coming Features:
-   
     *2-factor authentication
+      --2-factor is considered turned-on if user provided phone number.
+
+
+Twilio Integration:
+
+    Enter your twilio credentials in config/twilio.yml
+    If left blank and 2-factor authentication is turned on, 
+    the user will be prompted to contact an administrator.
 
 
 _The application can be found here:_ https://gems-postit.herokuapp.com/
-
-(in progress)
