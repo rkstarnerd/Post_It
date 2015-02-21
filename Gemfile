@@ -17,6 +17,7 @@ gem 'bcrypt'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'voteable_gemille', '0.0.3'
 gem 'sluggable_gemille', '0.0.1'
+gem 'twilio-ruby'
 
 group :doc do
   gem 'sdoc', require: false
