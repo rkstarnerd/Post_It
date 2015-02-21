@@ -1,4 +1,6 @@
 class SessionsController <ApplicationController
+  before_action 
+
   def new
   end
 
@@ -6,12 +8,34 @@ class SessionsController <ApplicationController
     user = User.find_by(username: params[:username])
     
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      flash[:notice] = "You've logged in!"
-      redirect_to root_path
+      if user.two_factor_auth?
+        session[:two_factor] = true
+        user.generate_pin!
+        # send pin to twilio, sms to user's phone
+        redirect_to pin_path
+      else
+        log_in(user)
+      end
+      
     else
       flash[:error] = "Your username and/or password was incorrect.  Please try again."
       redirect_to login_path
+    end
+  end
+
+  def pin
+    access_denied if session[:two_factor].nil?
+
+    if request.post?
+      user = User.find_by pin: params[:pin]
+        if user
+          session[:two_factor] = nil
+          user.remove_pin!
+          log_in(user)
+      else
+        flash[:error] = "Incorrect pin, please try again"
+        redirect_to pin_path
+      end
     end
   end
 
