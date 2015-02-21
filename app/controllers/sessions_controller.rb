@@ -10,8 +10,13 @@ class SessionsController <ApplicationController
       if user.two_factor_auth?
         session[:two_factor] = true
         user.generate_pin!
-        user.send_pin_to_twilio
-        redirect_to pin_path
+         if TWILIO_CONFIG['token'].blank?
+          flash[:error]= "Please contact an administrator for assistance."
+          redirect_to pin_path
+        else
+          user.send_pin_to_twilio
+          redirect_to pin_path
+        end
       else
         log_in(user)
       end
