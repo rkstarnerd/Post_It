@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include Sluggable
+  include SluggableGemille
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
