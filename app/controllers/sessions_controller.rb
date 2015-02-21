@@ -1,5 +1,4 @@
-class SessionsController <ApplicationController
-  before_action 
+class SessionsController <ApplicationController 
 
   def new
   end
