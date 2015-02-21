@@ -6,11 +6,11 @@
     <%= f.text_field :username %>
   </div>
   <div class='control-group'>
-    <%= f.label :phone, "Phone Number <small>(numbers only)</small".html_safe %>
+    <%= f.label :phone, "Phone Number <small>(numbers only)</small".html_safe %><br/>
     <%= f.text_field :phone, maxlength: 10 %>
-    <%= link_to "#", 'two_factor_phone' do %>
-      <i class='icon-question-sign'></i>
-    <% end %>
+    <%#= link_to "#", 'two_factor_phone', rel: 'tooltip' do %>
+      <!--<i class='icon-question-sign'></i> !-->
+    <%# end %>
   <div class='control-group'>
     <%= f.label :password %>
     <%= f.password_field :password %>
