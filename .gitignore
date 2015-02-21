@@ -17,3 +17,4 @@
 config/initializers/secret_token.rb
 localsettings.rb
 /lib/localsettings.rb
+config/twilio.yml
