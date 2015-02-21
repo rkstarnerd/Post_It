@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
   def generate_pin!
     self.update_column(:pin, rand(10 ** 6))
   end
+
+  def remove_pin!
+    self.update_column(:pin, nil)
+  end
 end
