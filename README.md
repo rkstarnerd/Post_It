@@ -12,15 +12,15 @@ Current Features:
     *Authentication
     *Comment and vote on posts
     *Tracks who created every comment, vote, and post
+    *Uses roles to allow admins to edit all posts
     *Display time based on user specified time zone
     *Uses ajax to vote
     *Slugs as URLs
+    *Uses gems to extract common logic
     *Deployed to Heroku
 
 Coming Features:
-
-    *Uses roles to allow admins to edit all posts
-    *Uses gem to extract common logic
+   
     *2-factor authentication
 
 
