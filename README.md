@@ -23,10 +23,11 @@ Features:
 
 
 Twilio Integration:
-
+    
+    Remove config/twilio.yml from .gitignore
     Enter your twilio credentials in config/twilio.yml
-    If left blank and 2-factor authentication is turned on, 
-    the user will be prompted to contact an administrator.
+      If left blank and 2-factor authentication is turned on, 
+      the user will be prompted to contact an administrator.
 
 
 _The application can be found here:_ https://gems-postit.herokuapp.com/
