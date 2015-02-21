@@ -37,7 +37,7 @@ class SessionsController <ApplicationController
           user.remove_pin!
           log_in(user)
       else
-        flash[:error] = "Incorrect pin, please try again"
+        flash[:error] = "Incorrect pin. Please try again or contact an administrator for assistance."
         redirect_to pin_path
       end
     end
