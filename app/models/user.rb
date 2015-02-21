@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def two_factor_auth?
     !self.phone.blank?    
   end
+
+  def generate_pin!
+    self.update_column(:pin, rand(10 ** 6))
+  end
 end
