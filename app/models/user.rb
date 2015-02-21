@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   def moderator?
     self.role == 'moderator'
   end
+
+  def two_factor_auth?
+    !self.phone.blank?    
+  end
 end
