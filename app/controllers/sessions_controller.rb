@@ -1,11 +1,11 @@
 class SessionsController <ApplicationController 
+  before_action :set_user, only: [:create, :forgot_password?]
 
   def new
   end
 
   def create
     user = User.find_by(username: params[:username])
-    
     if user && user.authenticate(params[:password])
       if user.two_factor_auth?
         session[:two_factor] = true
@@ -43,9 +43,37 @@ class SessionsController <ApplicationController
     end
   end
 
+  def forgot_password
+  end
+
+  def reset_password
+    user = User.find_by(username: params[:username])
+
+    if user && user.two_factor_auth?
+      session[:two_factor] = true
+      user.generate_pin!
+       if TWILIO_CONFIG['token'].blank?
+        flash[:error]= "Please contact an administrator for assistance."
+        redirect_to pin_path
+      else
+        user.send_pin_to_twilio
+        redirect_to pin_path
+      end
+    else
+      flash[:notice]= "Enter your username."
+      redirect_to forgot_password_path
+    end
+  end
+
   def destroy
     session[:user_id] = nil
     flash[:notice] = "You've logged out!"
     redirect_to root_path
   end
+
+  private
+
+    def set_user
+      
+    end
 end
