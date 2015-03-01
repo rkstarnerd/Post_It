@@ -10,7 +10,10 @@
       <%= label_tag :password %>
       <%= password_field_tag :password, params[:password] || '' %>
     </div>
-      <%= submit_tag "Login", class: 'btn btn-success' %>
+      <%= submit_tag "Login", class: 'btn btn-success' %> 
+      <small class="quiet">
+        (<%= link_to("Forgot your password?", "#") %>)
+      </small>
   <% end %>
 </div>
 
