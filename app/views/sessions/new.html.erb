@@ -12,9 +12,7 @@
     </div>
       <%= submit_tag "Login", class: 'btn btn-success' %> 
       <small class="quiet">
-        (<%= link_to("Forgot your password?", "#") %>)
+        (<%= link_to("Forgot your password?", forgot_password_path, method: 'post') %>)
       </small>
   <% end %>
 </div>
-
-
