@@ -18,6 +18,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'voteable_gemille', '0.0.3'
 gem 'sluggable_gemille', '0.0.1'
 gem 'twilio-ruby'
+gem 'fabrication', '~> 2.13.1'
+gem 'faker', '~> 1.4.3'
 
 group :doc do
   gem 'sdoc', require: false
