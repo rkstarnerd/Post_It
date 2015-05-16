@@ -10,6 +10,8 @@ PostitTemplate::Application.routes.draw do
   get  '/pin',              to: 'sessions#pin'
   post '/pin',             to: 'sessions#pin'
 
+  match '/auth/:provider/callback' => 'sessions#create_omniauth', via: :get
+
   resources :users, except: [:destroy] do
     resources :posts
     resources :comments, only: [:create, :show]
