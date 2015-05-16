@@ -45,4 +45,13 @@ class User < ActiveRecord::Base
   def remove_pin!
     self.update_column(:pin, nil)
   end
+
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.username = auth["info"]["name"]
+      user.password = SecureRandom.hex
+    end
+  end
 end
